@@ -16,7 +16,11 @@ class Employee(models.Model):
     emp_type = models.CharField(max_length=1,choices=EMP_TYPES, \
                                             default=0,null=False)
 
-    stories_assigned = models.ManyToManyField(Story)
+    stories_assigned = models.ManyToManyField(Story, blank=True)
+
+    def __str__(self):
+        return '{} {} - {}'.format(self.first_name, \
+                                    self.last_name, self.emp_type)
 
     
 
@@ -26,6 +30,9 @@ class Skill(models.Model):
     skill_name = models.CharField(max_length=100)
     tag = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.tag
+
 
 class SkillLevel(models.Model):
 
@@ -33,3 +40,6 @@ class SkillLevel(models.Model):
     skill = models.ForeignKey(Skill,null=False,on_delete=models.CASCADE)
 
     score = models.FloatField(default=0)
+
+
+
