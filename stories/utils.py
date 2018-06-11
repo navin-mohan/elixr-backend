@@ -3,7 +3,7 @@ import sys
 
 def calc_correlation(search_string, max_repo_count = 10):
 
-    g = Github("db27d22f0e359d15aba8a2ef1c93985b76e74cff")
+    g = Github("YOUR_KEY_HERE")
 
     language_usages = dict()
     repo_count = 1
